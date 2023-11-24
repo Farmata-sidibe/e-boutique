@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}E-commerce{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    
+    <div class="d-flex justify-content-between">
+        <h1>Bienvenue! notre collections de Produits</h1>
+    </div>
+
+    <div class="row">
+
+    {% for product in products %}
+
+            <div class="card" style="width: 18rem;">
+             <img class="card-img-top" src={{ product.image }} alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">{{ product.title }}</h5>
+                <p class="card-text">
+                {{ product.description|slice(1,100) }} 
+                {% if product.description|length > 100 %}
+                ...
+                {% endif %}
+                </p>
+                <a href="" class="btn btn-primary">Détail produit</a>
+                </div>
+            </div>
+
+    {% endfor %}
+        </div>
+        
+    </div>
+    
+{% endblock %}
