@@ -6,6 +6,8 @@
 
  <div class="container">
         <a href="{{ path('list_product') }}" class="btn btn-light h-75">Liste des produits</a>
+        <a href="{{ path('cart_index')}}" class="btn btn-primary">Voir mon panier</a>
+
 
     <div class="card" style="width: 30rem;">
         <img class="card-img-top" src={{ product.image }} alt="Card image cap">
@@ -14,7 +16,8 @@
             <p class="card-text"> {{ product.description|raw }} </p>
             <p class="card-text"> {{ product.price}} </p>
 
-            <a href="" class="btn btn-success h-75">Ajouter au panier</a>
+            <a href="{{ path('cart_add', {id_product: product.id}) }}" class="btn btn-success h-75">Ajouter au panier</a>
+            
         </div>
         
 

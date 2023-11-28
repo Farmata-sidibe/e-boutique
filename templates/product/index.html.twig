@@ -9,6 +9,8 @@
     
     <div class="d-flex justify-content-between">
         <h1>Bienvenue! notre collections de Produits</h1>
+        <a href="{{ path('cart_index')}}" class="btn btn-primary">Panier</a>
+
     </div>
 
     <div class="row">
@@ -26,7 +28,7 @@
                 {% endif %}
                 </p>
                 <a href="{{ path('product_view', {id_product: product.id}) }}" class="btn btn-primary">Détail produit</a>
-                <a href="" class="btn btn-primary">Ajouter au panier</a>
+                <a href="{{ path('cart_add', {id_product: product.id}) }}" class="btn btn-primary">Ajouter au panier</a>
 
                 </div>
             </div>

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+
+
+{% block body %}
+
+
+<div class="example-wrapper">
+    <h1>Votre panier ✅</h1>
+    <a href="{{ path('list_product')}}" class="btn btn-primary">Liste des produits</a>
+
+
+    {% if items | length > 0 %}
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td> {{item.product.title }} </td>
+                    <td>{{item.product.price }}</td>
+                    <td>{{item.quantity }}</td>
+                    <td>{{item.product.price * item.quantity }}</td>
+                    <td>
+                        <a href="{{ path('cart_remove_product', {id_product: item.product.id}) }}" class="btn btn-danger btn-sm"> Supprimer </a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+
+        </table>
+    {% else %}
+        <p>Votre panier est vide !</p>
+
+    {% endif %}
+
+
+</div>
+{% endblock %}
