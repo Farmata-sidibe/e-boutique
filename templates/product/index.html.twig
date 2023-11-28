@@ -25,7 +25,9 @@
                 ...
                 {% endif %}
                 </p>
-                <a href="" class="btn btn-primary">Détail produit</a>
+                <a href="{{ path('product_view', {id_product: product.id}) }}" class="btn btn-primary">Détail produit</a>
+                <a href="" class="btn btn-primary">Ajouter au panier</a>
+
                 </div>
             </div>
 
